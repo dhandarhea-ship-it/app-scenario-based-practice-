@@ -1,0 +1,39 @@
+class Vehicle:
+    def __init__(self, vehicle_number, brand, price):
+        self.vehicle_number = vehicle_number
+        self.brand = brand
+        self.price = price
+
+    def get_category(self):
+        if self.price >= 1000000:
+            return "Luxury"
+        else:
+            return "Economy"
+
+    def display(self):
+        print("Vehicle Number:", self.vehicle_number)
+        print("Brand:", self.brand)
+        print("Price: ₹", self.price)
+        print("Category:", self.get_category())
+        print("-" * 30)
+
+
+class Showroom:
+    def __init__(self):
+        self.vehicles = []
+
+    def add_vehicle(self, vehicle):
+        self.vehicles.append(vehicle)
+
+    def display_vehicles(self):
+        for vehicle in self.vehicles:
+            vehicle.display()
+
+
+showroom = Showroom()
+
+showroom.add_vehicle(Vehicle("MH12AB1234", "BMW", 1500000))
+showroom.add_vehicle(Vehicle("MH14CD5678", "Maruti", 800000))
+showroom.add_vehicle(Vehicle("MH12EF9012", "Mercedes", 2500000))
+
+showroom.display_vehicles()
