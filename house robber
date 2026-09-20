@@ -1,0 +1,20 @@
+amounts = list(map(int, input("Enter amount in each house: ").split()))
+
+n = len(amounts)
+
+if n == 0:
+    print("Maximum amount:", 0)
+
+elif n == 1:
+    print("Maximum amount:", amounts[0])
+
+else:
+    dp = [0] * n
+
+    dp[0] = amounts[0]
+    dp[1] = max(amounts[0], amounts[1])
+
+    for i in range(2, n):
+        dp[i] = max(dp[i - 1], dp[i - 2] + amounts[i])
+
+    print("Maximum amount:", dp[n - 1])
