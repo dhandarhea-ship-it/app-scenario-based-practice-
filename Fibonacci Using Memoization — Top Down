@@ -1,0 +1,20 @@
+def fibonacci(n, memo):
+    if n <= 1:
+        return n
+
+    if n not in memo:
+        memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo)
+
+    return memo[n]
+
+
+n = int(input("Enter N: "))
+
+memo = {}
+sequence = []
+
+for i in range(n):
+    sequence.append(fibonacci(i, memo))
+
+print("Fibonacci Sequence:")
+print(sequence)
