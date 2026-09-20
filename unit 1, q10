@@ -1,0 +1,42 @@
+class Player:
+    def __init__(self, player_name, jersey_number, runs):
+        self.player_name = player_name
+        self.jersey_number = jersey_number
+        self.runs = runs
+
+    def get_category(self):
+        if self.runs >= 5000:
+            return "Excellent"
+        elif self.runs >= 2000:
+            return "Good"
+        else:
+            return "Average"
+
+    def display(self):
+        print("Player Name:", self.player_name)
+        print("Jersey Number:", self.jersey_number)
+        print("Runs:", self.runs)
+        print("Category:", self.get_category())
+        print("-" * 30)
+
+
+class Team:
+    def __init__(self):
+        self.players = []
+
+    def add_player(self, player):
+        self.players.append(player)
+
+    def display_players(self):
+        for player in self.players:
+            player.display()
+
+
+team = Team()
+
+team.add_player(Player("Virat", 18, 12000))
+team.add_player(Player("Rohit", 45, 9000))
+team.add_player(Player("Rahul", 1, 3000))
+team.add_player(Player("Player 4", 7, 1000))
+
+team.display_players()
